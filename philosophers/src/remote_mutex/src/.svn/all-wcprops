@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ROStesting/!svn/ver/3/trunk/philosophers/src/remote_mutex/src
+END
+RemoteMutex.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ROStesting/!svn/ver/3/trunk/philosophers/src/remote_mutex/src/RemoteMutex.cpp
+END
+MutexGuard.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ROStesting/!svn/ver/3/trunk/philosophers/src/remote_mutex/src/MutexGuard.cpp
+END
+StandaloneMutex.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ROStesting/!svn/ver/3/trunk/philosophers/src/remote_mutex/src/StandaloneMutex.cpp
+END

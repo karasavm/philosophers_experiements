@@ -1,0 +1,55 @@
+<launch>
+	<include file="$(find dining_philosopher)/launch/params.launch"/>
+	<include file="$(find dining_philosopher)/launch/nodes.launch"/>
+
+<node name="philosopher49" type="faulty_philosopher" pkg="dining_philosopher" respawn="false" args="49 forkcnt 49"/>
+<node name="philosopher0" type="philosopher" pkg="dining_philosopher" respawn="false" args="0 forkcnt 0"/>
+<node name="philosopher1" type="philosopher" pkg="dining_philosopher" respawn="false" args="1 forkcnt 1"/>
+<node name="philosopher2" type="philosopher" pkg="dining_philosopher" respawn="false" args="2 forkcnt 2"/>
+<node name="philosopher3" type="philosopher" pkg="dining_philosopher" respawn="false" args="3 forkcnt 3"/>
+<node name="philosopher4" type="philosopher" pkg="dining_philosopher" respawn="false" args="4 forkcnt 4"/>
+<node name="philosopher5" type="philosopher" pkg="dining_philosopher" respawn="false" args="5 forkcnt 5"/>
+<node name="philosopher6" type="philosopher" pkg="dining_philosopher" respawn="false" args="6 forkcnt 6"/>
+<node name="philosopher7" type="philosopher" pkg="dining_philosopher" respawn="false" args="7 forkcnt 7"/>
+<node name="philosopher8" type="philosopher" pkg="dining_philosopher" respawn="false" args="8 forkcnt 8"/>
+<node name="philosopher9" type="philosopher" pkg="dining_philosopher" respawn="false" args="9 forkcnt 9"/>
+<node name="philosopher10" type="philosopher" pkg="dining_philosopher" respawn="false" args="10 forkcnt 10"/>
+<node name="philosopher11" type="philosopher" pkg="dining_philosopher" respawn="false" args="11 forkcnt 11"/>
+<node name="philosopher12" type="philosopher" pkg="dining_philosopher" respawn="false" args="12 forkcnt 12"/>
+<node name="philosopher13" type="philosopher" pkg="dining_philosopher" respawn="false" args="13 forkcnt 13"/>
+<node name="philosopher14" type="philosopher" pkg="dining_philosopher" respawn="false" args="14 forkcnt 14"/>
+<node name="philosopher15" type="philosopher" pkg="dining_philosopher" respawn="false" args="15 forkcnt 15"/>
+<node name="philosopher16" type="philosopher" pkg="dining_philosopher" respawn="false" args="16 forkcnt 16"/>
+<node name="philosopher17" type="philosopher" pkg="dining_philosopher" respawn="false" args="17 forkcnt 17"/>
+<node name="philosopher18" type="philosopher" pkg="dining_philosopher" respawn="false" args="18 forkcnt 18"/>
+<node name="philosopher19" type="philosopher" pkg="dining_philosopher" respawn="false" args="19 forkcnt 19"/>
+<node name="philosopher20" type="philosopher" pkg="dining_philosopher" respawn="false" args="20 forkcnt 20"/>
+<node name="philosopher21" type="philosopher" pkg="dining_philosopher" respawn="false" args="21 forkcnt 21"/>
+<node name="philosopher22" type="philosopher" pkg="dining_philosopher" respawn="false" args="22 forkcnt 22"/>
+<node name="philosopher23" type="philosopher" pkg="dining_philosopher" respawn="false" args="23 forkcnt 23"/>
+<node name="philosopher24" type="philosopher" pkg="dining_philosopher" respawn="false" args="24 forkcnt 24"/>
+<node name="philosopher25" type="philosopher" pkg="dining_philosopher" respawn="false" args="25 forkcnt 25"/>
+<node name="philosopher26" type="philosopher" pkg="dining_philosopher" respawn="false" args="26 forkcnt 26"/>
+<node name="philosopher27" type="philosopher" pkg="dining_philosopher" respawn="false" args="27 forkcnt 27"/>
+<node name="philosopher28" type="philosopher" pkg="dining_philosopher" respawn="false" args="28 forkcnt 28"/>
+<node name="philosopher29" type="philosopher" pkg="dining_philosopher" respawn="false" args="29 forkcnt 29"/>
+<node name="philosopher30" type="philosopher" pkg="dining_philosopher" respawn="false" args="30 forkcnt 30"/>
+<node name="philosopher31" type="philosopher" pkg="dining_philosopher" respawn="false" args="31 forkcnt 31"/>
+<node name="philosopher32" type="philosopher" pkg="dining_philosopher" respawn="false" args="32 forkcnt 32"/>
+<node name="philosopher33" type="philosopher" pkg="dining_philosopher" respawn="false" args="33 forkcnt 33"/>
+<node name="philosopher34" type="philosopher" pkg="dining_philosopher" respawn="false" args="34 forkcnt 34"/>
+<node name="philosopher35" type="philosopher" pkg="dining_philosopher" respawn="false" args="35 forkcnt 35"/>
+<node name="philosopher36" type="philosopher" pkg="dining_philosopher" respawn="false" args="36 forkcnt 36"/>
+<node name="philosopher37" type="philosopher" pkg="dining_philosopher" respawn="false" args="37 forkcnt 37"/>
+<node name="philosopher38" type="philosopher" pkg="dining_philosopher" respawn="false" args="38 forkcnt 38"/>
+<node name="philosopher39" type="philosopher" pkg="dining_philosopher" respawn="false" args="39 forkcnt 39"/>
+<node name="philosopher40" type="philosopher" pkg="dining_philosopher" respawn="false" args="40 forkcnt 40"/>
+<node name="philosopher41" type="philosopher" pkg="dining_philosopher" respawn="false" args="41 forkcnt 41"/>
+<node name="philosopher42" type="philosopher" pkg="dining_philosopher" respawn="false" args="42 forkcnt 42"/>
+<node name="philosopher43" type="philosopher" pkg="dining_philosopher" respawn="false" args="43 forkcnt 43"/>
+<node name="philosopher44" type="philosopher" pkg="dining_philosopher" respawn="false" args="44 forkcnt 44"/>
+<node name="philosopher45" type="philosopher" pkg="dining_philosopher" respawn="false" args="45 forkcnt 45"/>
+<node name="philosopher46" type="philosopher" pkg="dining_philosopher" respawn="false" args="46 forkcnt 46"/>
+<node name="philosopher47" type="philosopher" pkg="dining_philosopher" respawn="false" args="47 forkcnt 47"/>
+<node name="philosopher48" type="philosopher" pkg="dining_philosopher" respawn="false" args="48 forkcnt 48"/>
+</launch>

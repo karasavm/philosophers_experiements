@@ -1,0 +1,98 @@
+10
+
+dir
+0
+https://155.207.18.187:86/svn/ROStesting/trunk/philosophers/devel/lib/pkgconfig
+https://155.207.18.187:86/svn/ROStesting
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fd63e788-6c71-9042-88ae-1fe18d8e671c
+
+anomaly_detection.pc
+file
+
+
+
+add
+
+philosophers.pc
+file
+
+
+
+add
+
+watchdog_timer.pc
+file
+
+
+
+add
+
+erratic_state_changer.pc
+file
+
+
+
+add
+
+state_manager_communications.pc
+file
+
+
+
+add
+
+dining_philosopher.pc
+file
+
+
+
+add
+
+state_manager.pc
+file
+
+
+
+add
+
+remote_counter.pc
+file
+
+
+
+add
+
+dining_philosopher_communications.pc
+file
+
+
+
+add
+
+remote_mutex.pc
+file
+
+
+
+add
+

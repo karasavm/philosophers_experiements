@@ -1,0 +1,25 @@
+<package>
+  <name>remote_counter</name>
+  <version>1.0.0</version>
+  <description>
+		A simple implementation of remote counters.
+
+  </description>
+  <author>Marina Stamadiadou, Miltiadis Allamanis</author>
+  <maintainer email="m.allamanis@ed.ac.uk">Miltos</maintainer>
+  <license>MIT</license>
+  <url>http://ros.org/wiki/remote_counter</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>diagnostic_updater</build_depend>
+
+   
+   <run_depend>roscpp</run_depend> 
+   <run_depend>diagnostic_updater</run_depend> 
+
+</package>
+
+
+

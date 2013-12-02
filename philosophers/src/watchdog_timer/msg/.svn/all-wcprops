@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ROStesting/!svn/ver/3/trunk/philosophers/src/watchdog_timer/msg
+END
+wdtTimeoutNotificationMsg.msg
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ROStesting/!svn/ver/3/trunk/philosophers/src/watchdog_timer/msg/wdtTimeoutNotificationMsg.msg
+END
+watchdogResetMsg.msg
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ROStesting/!svn/ver/3/trunk/philosophers/src/watchdog_timer/msg/watchdogResetMsg.msg
+END

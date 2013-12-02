@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ROStesting/!svn/ver/100/trunk/philosophers/src/remote_counter
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ROStesting/!svn/ver/3/trunk/philosophers/src/remote_counter/mainpage.dox
+END
+package.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ROStesting/!svn/ver/100/trunk/philosophers/src/remote_counter/package.xml
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ROStesting/!svn/ver/100/trunk/philosophers/src/remote_counter/CMakeLists.txt
+END

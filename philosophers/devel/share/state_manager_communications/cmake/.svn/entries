@@ -1,0 +1,56 @@
+10
+
+dir
+0
+https://155.207.18.187:86/svn/ROStesting/trunk/philosophers/devel/share/state_manager_communications/cmake
+https://155.207.18.187:86/svn/ROStesting
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fd63e788-6c71-9042-88ae-1fe18d8e671c
+
+state_manager_communications-msg-paths.cmake
+file
+
+
+
+add
+
+state_manager_communicationsConfig.cmake
+file
+
+
+
+add
+
+state_manager_communications-msg-extras.cmake
+file
+
+
+
+add
+
+state_manager_communicationsConfig-version.cmake
+file
+
+
+
+add
+

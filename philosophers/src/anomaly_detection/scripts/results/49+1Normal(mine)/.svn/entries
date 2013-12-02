@@ -1,0 +1,56 @@
+10
+
+dir
+0
+https://155.207.18.187:86/svn/ROStesting/trunk/philosophers/src/anomaly_detection/scripts/new/results/49+1Normal(mine)
+https://155.207.18.187:86/svn/ROStesting
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fd63e788-6c71-9042-88ae-1fe18d8e671c
+
+plots
+dir
+
+
+
+add
+
+DETAILS.txt
+file
+
+
+
+add
+
+ploter.py
+file
+
+
+
+add
+
+normal_set.csv
+file
+
+
+
+add
+

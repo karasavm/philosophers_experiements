@@ -1,0 +1,84 @@
+10
+
+dir
+0
+https://155.207.18.187:86/svn/ROStesting/trunk/philosophers/devel/lib
+https://155.207.18.187:86/svn/ROStesting
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fd63e788-6c71-9042-88ae-1fe18d8e671c
+
+pkgconfig
+dir
+
+
+
+add
+
+python2.7
+dir
+
+
+
+add
+
+remote_counter
+dir
+
+
+
+add
+
+state_manager
+dir
+
+
+
+add
+
+remote_mutex
+dir
+
+
+
+add
+
+watchdog_timer
+dir
+
+
+
+add
+
+erratic_state_changer
+dir
+
+
+
+add
+
+dining_philosopher
+dir
+
+
+
+add
+

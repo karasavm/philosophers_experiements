@@ -1,0 +1,105 @@
+10
+
+dir
+0
+https://155.207.18.187:86/svn/ROStesting/trunk/philosophers/devel/share
+https://155.207.18.187:86/svn/ROStesting
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fd63e788-6c71-9042-88ae-1fe18d8e671c
+
+dining_philosopher
+dir
+
+
+
+add
+
+remote_counter
+dir
+
+
+
+add
+
+state_manager
+dir
+
+
+
+add
+
+dining_philosopher_communications
+dir
+
+
+
+add
+
+remote_mutex
+dir
+
+
+
+add
+
+common-lisp
+dir
+
+
+
+add
+
+anomaly_detection
+dir
+
+
+
+add
+
+philosophers
+dir
+
+
+
+add
+
+watchdog_timer
+dir
+
+
+
+add
+
+erratic_state_changer
+dir
+
+
+
+add
+
+state_manager_communications
+dir
+
+
+
+add
+

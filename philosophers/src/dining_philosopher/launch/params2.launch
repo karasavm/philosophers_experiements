@@ -1,0 +1,11 @@
+<launch>
+   <param name="/philosophers/max_eating_time" type="int" value="8" />
+   <param name="/philosophers/max_thinking_time" type="int" value="8" />
+   <param name="/philosophers/starvationThreshold" type="double" value="5.0" />
+   <param name="/philosophers/hunger_increase_rate" type="double" value="1.0" />
+   <param name="/philosophers/hunger_decrease_ratio" type="double" value="0.8" />
+   <param name="/philosophers/total_forks" type="int" value="200" />
+   <param name="/philosophers/total" type="int" value="50" />
+   <param name="/philosophers/faulty" type="int" value="0" />
+   <param name="/philosophers/deny_forks" type="int" value="-1" />
+</launch>

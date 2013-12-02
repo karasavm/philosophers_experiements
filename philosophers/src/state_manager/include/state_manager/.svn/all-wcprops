@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ROStesting/!svn/ver/3/trunk/philosophers/src/state_manager/include/state_manager
+END
+StateClient.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ROStesting/!svn/ver/3/trunk/philosophers/src/state_manager/include/state_manager/StateClient.h
+END
+StateServer.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ROStesting/!svn/ver/3/trunk/philosophers/src/state_manager/include/state_manager/StateServer.h
+END

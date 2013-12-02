@@ -1,0 +1,12 @@
+#Normal
+
+/faulty_philosophers/hunger_increase_rate: 1   
+/faulty_philosophers/hunger_decrease_ratio: 0.8  
+/faulty_philosophers/max_eating_time: 8
+/faulty_philosophers/max_thinking_time: 2
+/faulty_philosophers/starvationThreshold: 5.0
+/faulty_philosophers/total_forks: 200
+
+/faulty_philosophers/faulty: 0
+/faulty_philosophers/deny_forks: -1
+

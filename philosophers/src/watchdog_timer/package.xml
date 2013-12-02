@@ -1,0 +1,23 @@
+<package>
+  <name>watchdog_timer</name>
+  <version>1.0.0</version>
+  <description>
+
+     A remote Watchdog Timer
+
+  </description>
+  <author>Miltiadis Allamanis</author>
+  <maintainer email="m.allamanis@ed.ac.uk">Miltos</maintainer>
+  <license>MIT</license>
+  <url>http://ros.org/wiki/watchdog</url>
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend> 
+  
+  <export>
+   <!--- <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -lWatchdog"/>-->
+  </export>
+
+</package>
+
+

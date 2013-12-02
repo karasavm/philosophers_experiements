@@ -1,0 +1,70 @@
+10
+
+dir
+0
+https://155.207.18.187:86/svn/ROStesting/trunk/philosophers/build/dining_philosopher_communications/catkin_generated/installspace
+https://155.207.18.187:86/svn/ROStesting
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fd63e788-6c71-9042-88ae-1fe18d8e671c
+
+dining_philosopher_communications-msg-paths-context.py
+file
+
+
+
+add
+
+dining_philosopher_communications-msg-paths.cmake
+file
+
+
+
+add
+
+dining_philosopher_communications.pc
+file
+
+
+
+add
+
+dining_philosopher_communicationsConfig.cmake
+file
+
+
+
+add
+
+dining_philosopher_communications-msg-extras.cmake
+file
+
+
+
+add
+
+dining_philosopher_communicationsConfig-version.cmake
+file
+
+
+
+add
+

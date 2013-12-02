@@ -1,0 +1,63 @@
+10
+
+dir
+0
+https://155.207.18.187:86/svn/ROStesting/trunk/philosophers/devel/share/common-lisp/ros
+https://155.207.18.187:86/svn/ROStesting
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fd63e788-6c71-9042-88ae-1fe18d8e671c
+
+remote_counter
+dir
+
+
+
+add
+
+dining_philosopher_communications
+dir
+
+
+
+add
+
+remote_mutex
+dir
+
+
+
+add
+
+watchdog_timer
+dir
+
+
+
+add
+
+state_manager_communications
+dir
+
+
+
+add
+

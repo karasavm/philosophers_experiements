@@ -1,0 +1,12 @@
+
+#CHANGE RATES FOR HUNGER
+
+/faulty_philosophers/hunger_increase_rate: 0   
+/faulty_philosophers/hunger_decrease_ratio: 1  
+/faulty_philosophers/faulty: 1  
+
+
+
+
+
+

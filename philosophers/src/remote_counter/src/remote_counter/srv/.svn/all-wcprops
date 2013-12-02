@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ROStesting/!svn/ver/3/trunk/philosophers/src/remote_counter/src/remote_counter/srv
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ROStesting/!svn/ver/3/trunk/philosophers/src/remote_counter/src/remote_counter/srv/__init__.py
+END
+_countingSrv.py
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ROStesting/!svn/ver/3/trunk/philosophers/src/remote_counter/src/remote_counter/srv/_countingSrv.py
+END

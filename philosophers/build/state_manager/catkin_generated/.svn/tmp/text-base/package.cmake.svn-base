@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "state_manager")
+set(state_manager_MAINTAINER "Afouras Triantafyllos <afourast@gmail.com>")
+set(state_manager_DEPRECATED "")
+set(state_manager_VERSION "1.0.0")
+set(state_manager_BUILD_DEPENDS "roscpp" "diagnostic_updater" "state_manager_communications" "std_msgs")
+set(state_manager_RUN_DEPENDS "roscpp" "diagnostic_updater" "state_manager_communications" "std_msgs")
+set(state_manager_BUILDTOOL_DEPENDS "catkin")
