@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "dining_philosopher_communications")
-set(dining_philosopher_communications_MAINTAINER "Miltos <m.allamanis@ed.ac.uk>")
-set(dining_philosopher_communications_DEPRECATED "")
-set(dining_philosopher_communications_VERSION "0.0.1")
-set(dining_philosopher_communications_BUILD_DEPENDS "message_generation" "std_msgs")
-set(dining_philosopher_communications_RUN_DEPENDS "message_runtime" "std_msgs")
-set(dining_philosopher_communications_BUILDTOOL_DEPENDS "catkin")

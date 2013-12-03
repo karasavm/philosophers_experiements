@@ -1,8 +1,0 @@
-prefix=/home/mike/svn/nasia/trunk/philosophers/devel
-
-Name: remote_counter
-Description: Description of remote_counter
-Version: 1.0.0
-Cflags: -I/home/mike/svn/nasia/trunk/philosophers/devel/include -I/home/mike/svn/nasia/trunk/philosophers/src/remote_counter/include
-Libs: -L/home/mike/svn/nasia/trunk/philosophers/devel/lib 
-Requires: 

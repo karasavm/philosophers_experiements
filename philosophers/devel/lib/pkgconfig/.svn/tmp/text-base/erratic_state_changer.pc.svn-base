@@ -1,8 +1,0 @@
-prefix=/home/mike/svn/nasia/trunk/philosophers/devel
-
-Name: erratic_state_changer
-Description: Description of erratic_state_changer
-Version: 1.0.0
-Cflags: 
-Libs: -L/home/mike/svn/nasia/trunk/philosophers/devel/lib 
-Requires: 

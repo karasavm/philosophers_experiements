@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "state_manager_communications")
-set(state_manager_communications_MAINTAINER "Miltos <m.allamanis@ed.ac.uk>")
-set(state_manager_communications_DEPRECATED "")
-set(state_manager_communications_VERSION "1.0.0")
-set(state_manager_communications_BUILD_DEPENDS "message_generation" "std_msgs")
-set(state_manager_communications_RUN_DEPENDS "message_runtime" "std_msgs")
-set(state_manager_communications_BUILDTOOL_DEPENDS "catkin")

@@ -1,8 +1,0 @@
-prefix=/home/mike/svn/nasia/trunk/philosophers/install
-
-Name: watchdog_timer
-Description: Description of watchdog_timer
-Version: 1.0.0
-Cflags: -I/home/mike/svn/nasia/trunk/philosophers/install/include
-Libs: -L/home/mike/svn/nasia/trunk/philosophers/install/lib -lWatchdog
-Requires: 

@@ -1,8 +1,0 @@
-prefix=/home/mike/svn/nasia/trunk/philosophers/install
-
-Name: anomaly_detection
-Description: Description of anomaly_detection
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/mike/svn/nasia/trunk/philosophers/install/lib 
-Requires: 

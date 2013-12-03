@@ -1,2 +1,0 @@
-set(state_manager_communications_MESSAGE_FILES "/home/mike/svn/nasia/trunk/philosophers/src/state_manager_communications/msg/robotModeMsg.msg")
-set(state_manager_communications_SERVICE_FILES "/home/mike/svn/nasia/trunk/philosophers/src/state_manager_communications/srv/registerNodeSrv.srv")
