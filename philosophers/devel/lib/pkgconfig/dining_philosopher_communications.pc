@@ -1,8 +1,0 @@
-prefix=/home/mike/philosophers_experiments/philosophers/devel
-
-Name: dining_philosopher_communications
-Description: Description of dining_philosopher_communications
-Version: 0.0.1
-Cflags: -I/home/mike/philosophers_experiments/philosophers/devel/include
-Libs: -L/home/mike/philosophers_experiments/philosophers/devel/lib 
-Requires: message_runtime

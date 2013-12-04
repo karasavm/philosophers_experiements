@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "remote_mutex")
-set(remote_mutex_MAINTAINER "Miltos <m.allamanis@ed.ac.uk>")
-set(remote_mutex_DEPRECATED "")
-set(remote_mutex_VERSION "1.0.0")
-set(remote_mutex_BUILD_DEPENDS "roscpp")
-set(remote_mutex_RUN_DEPENDS "roscpp")
-set(remote_mutex_BUILDTOOL_DEPENDS "catkin")

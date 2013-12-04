@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "anomaly_detection")
-set(anomaly_detection_MAINTAINER "nasia <nasia@todo.todo>")
-set(anomaly_detection_DEPRECATED "")
-set(anomaly_detection_VERSION "0.0.0")
-set(anomaly_detection_BUILD_DEPENDS "dining_philosopher_communications" "std_msgs" "remote_counter")
-set(anomaly_detection_RUN_DEPENDS "dining_philosopher_communications" "rospy" "std_msgs" "remote_counter")
-set(anomaly_detection_BUILDTOOL_DEPENDS "catkin")

@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "dining_philosopher")
-set(dining_philosopher_MAINTAINER "Miltos <m.allamanis@ed.ac.uk>")
-set(dining_philosopher_DEPRECATED "")
-set(dining_philosopher_VERSION "1.0.0")
-set(dining_philosopher_BUILD_DEPENDS "roscpp" "diagnostic_updater" "remote_mutex" "remote_counter" "state_manager" "dining_philosopher_communications" "watchdog_timer" "thread" "thread")
-set(dining_philosopher_RUN_DEPENDS )
-set(dining_philosopher_BUILDTOOL_DEPENDS "catkin")

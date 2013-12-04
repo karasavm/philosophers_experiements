@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "remote_counter")
-set(remote_counter_MAINTAINER "Miltos <m.allamanis@ed.ac.uk>")
-set(remote_counter_DEPRECATED "")
-set(remote_counter_VERSION "1.0.0")
-set(remote_counter_BUILD_DEPENDS "roscpp" "std_msgs" "diagnostic_updater")
-set(remote_counter_RUN_DEPENDS "roscpp" "diagnostic_updater")
-set(remote_counter_BUILDTOOL_DEPENDS "catkin")

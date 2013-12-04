@@ -1,8 +1,0 @@
-prefix=/home/mike/philosophers_experiments/philosophers/install
-
-Name: remote_mutex
-Description: Description of remote_mutex
-Version: 1.0.0
-Cflags: -I/home/mike/philosophers_experiments/philosophers/install/include
-Libs: -L/home/mike/philosophers_experiments/philosophers/install/lib -lRemoteMutex
-Requires: 

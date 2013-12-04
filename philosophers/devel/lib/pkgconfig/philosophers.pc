@@ -1,8 +1,0 @@
-prefix=/home/mike/philosophers_experiments/philosophers/devel
-
-Name: philosophers
-Description: Description of philosophers
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/mike/philosophers_experiments/philosophers/devel/lib 
-Requires: 
