@@ -1,0 +1,8 @@
+prefix=/home/mike/philosophers_experiments/philosophers/devel
+
+Name: erratic_state_changer
+Description: Description of erratic_state_changer
+Version: 1.0.0
+Cflags: 
+Libs: -L/home/mike/philosophers_experiments/philosophers/devel/lib 
+Requires: 

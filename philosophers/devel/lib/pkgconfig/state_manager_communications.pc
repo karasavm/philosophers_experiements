@@ -1,0 +1,8 @@
+prefix=/home/mike/philosophers_experiments/philosophers/devel
+
+Name: state_manager_communications
+Description: Description of state_manager_communications
+Version: 1.0.0
+Cflags: -I/home/mike/philosophers_experiments/philosophers/devel/include
+Libs: -L/home/mike/philosophers_experiments/philosophers/devel/lib 
+Requires: message_runtime

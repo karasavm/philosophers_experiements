@@ -1,0 +1,8 @@
+prefix=/home/mike/philosophers_experiments/philosophers/install
+
+Name: dining_philosopher
+Description: Description of dining_philosopher
+Version: 1.0.0
+Cflags: 
+Libs: -L/home/mike/philosophers_experiments/philosophers/install/lib 
+Requires: 

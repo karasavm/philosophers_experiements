@@ -1,4 +1,0 @@
-#DENY FORKS
-
-/faulty_philosophers/deny_forks: 1.0
-faulty_philosophers/faulty: 0

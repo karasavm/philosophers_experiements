@@ -1,0 +1,2 @@
+set(dining_philosopher_communications_MESSAGE_FILES "/home/mike/philosophers_experiments/philosophers/src/dining_philosopher_communications/msg/hungerMsg.msg")
+set(dining_philosopher_communications_SERVICE_FILES "")

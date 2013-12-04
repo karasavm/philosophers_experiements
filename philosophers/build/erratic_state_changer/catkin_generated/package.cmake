@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "erratic_state_changer")
+set(erratic_state_changer_MAINTAINER "Miltos <m.allamanis@ed.ac.uk>")
+set(erratic_state_changer_DEPRECATED "")
+set(erratic_state_changer_VERSION "1.0.0")
+set(erratic_state_changer_BUILD_DEPENDS "roscpp" "state_manager" "state_manager_communications")
+set(erratic_state_changer_RUN_DEPENDS )
+set(erratic_state_changer_BUILDTOOL_DEPENDS "catkin")

@@ -116,6 +116,7 @@ class AnomalyClassifier():
 			self.pinakas=np.reshape(self.pinakas,(n,1))
 		#print "kainourio shape pinaka=",self.pinakas.shape
 		A=np.hstack(self.pinakas[i:1+n+i-self.width:stepsize] for i in range(0,self.width) ) #Dimiourgei sumptigmeno dataset
+		print A
 		#print "pinakas meta to para8iro", A
 		mytrainSet=A
 		#print "mege8os protis diastasis=", A.shape[0]

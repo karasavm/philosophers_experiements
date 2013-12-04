@@ -1,7 +1,0 @@
-<launch>
-
-	<node name="stateManager" type="server" pkg="state_manager" respawn="false"/>
-	<node name="fork_holder" type="RemotePositiveCounter" pkg="remote_counter" respawn="false" args="forkcnt 200"/>
-	<node name ="erraticStateChanger" type="erraticStateChanger" pkg="erratic_state_changer" respawn="true" args="30"/>
-	<node name="stateChange" type="stateChanger" pkg="state_manager" respawn="false" args="1"/>
-</launch>

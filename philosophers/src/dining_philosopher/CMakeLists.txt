@@ -51,11 +51,7 @@ target_link_libraries(philosopher PhilosopherLib)
 #add_executable(constant_philosopher src/faulty_philosophers/ConstantPhilosopher-main.cc)
 #target_link_libraries(constant_philosopher ConstantPhilosopherLib)
 #########
-add_executable(constant_philosopher src/faulty_philosophers/ConstantPhilosopher.cc)
-target_link_libraries(constant_philosopher ${catkin_LIBRARIES})
 
-add_executable(eating_thinking_var_philosopher src/faulty_philosophers/EatingThinkingVarPhilosopher.cc)
-target_link_libraries(eating_thinking_var_philosopher ${catkin_LIBRARIES})
 
 #add_executable(eating_hungring_rates_philosopher src/faulty_philosophers/EatingHungringRatesPhilosopher.cc)
 #target_link_libraries(eating_hungring_rates_philosopher ${catkin_LIBRARIES})

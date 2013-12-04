@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "philosophers")
+set(philosophers_MAINTAINER "miltiadis <miltiadis@todo.todo>")
+set(philosophers_DEPRECATED "")
+set(philosophers_VERSION "0.0.0")
+set(philosophers_BUILD_DEPENDS "roscpp" "dining_philosopher" "dining_philosopher_communications" "erratic_state_changer" "remote_counter" "remote_mutex" "state_manager" "state_manager_communications" "watchdog_timer" "anomaly_detection")
+set(philosophers_RUN_DEPENDS )
+set(philosophers_BUILDTOOL_DEPENDS "catkin")
