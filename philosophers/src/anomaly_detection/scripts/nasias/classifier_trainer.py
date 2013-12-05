@@ -27,6 +27,7 @@ class classifierTrainer():
 			#print "einai AnomalyClassifier"
 		self.width=mywidth
 		classifier.trainWithDataset(pinakasA,self.width)
+		
 		trained_pickled = open('/home/mike/svn/nasia/trunk/philosophers/src/anomaly_detection/scripts/results/trained.pkl', 'wb') #apo8ikevei to trained montelo sto data.pkl
 		pickle.dump(classifier, trained_pickled, -1)
 		sys.exit()

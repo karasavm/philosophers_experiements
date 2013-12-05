@@ -19,6 +19,7 @@ class SVMAnomalyClassifier(AnomalyClassifier):
 		self.trainSet=convertedDataSet
 		self.trained=self.cf.fit(self.trainSet)
 		print "SVM trained"
+		
 	def classifyAnomaly(self,testSample):
 		#print "trehei i classifyAnomaly tou svm!"
 		self.Sample=testSample

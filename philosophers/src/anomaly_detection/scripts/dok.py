@@ -1,29 +1,31 @@
 #!/usr/bin/env python
-import pylab 
 import numpy
-import matplotlib.pyplot as plt
-import sys
-import subprocess
-import os
-from collections import OrderedDict
-import xml.etree.ElementTree as et
-import time
-import signal
-import shutil
-
-import thread
-import datetime
+import csv
+from sklearn import svm
+import pickle
 
 
 
-def fun(arg):
-	print 'mpike'
-	time.sleep(4)
-	print 'vgike'
-	
-	
-	
-thread.start_new_thread(fun,(2,))
+
+class A():
+	def __init__(self):
+		pass
+		self.a = 4
+	def fun(self,h):
+		print "hello",h
+		
 
 
-time.sleep(1)
+
+f = open("/home/mike/experiments/temp.pkl",'w')
+
+a = A()
+pickle.dump(a,f,-1)
+f.close()
+
+f = open("/home/mike/experiments/temp.pkl",'r')
+
+k = pickle.load(f)
+
+k.fun(77)
+if (os.path.exists(file_path) == True)
