@@ -1,10 +1,4 @@
-
-
-
-
-	
 def create_params_launch(params, path, name='params2.launch', namespace="/philosophers"):
-	
 	f = open(path+name,'w')
 	f.write('<launch>\n')
 	for param in params:

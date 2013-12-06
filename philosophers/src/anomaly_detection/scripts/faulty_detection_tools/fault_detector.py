@@ -2,29 +2,30 @@ import numpy as numpy
 import pickle
 import os.path
 
-
-
-
 class FaultDetector:
 	
 	def __init__(self, data, window):
 		
 		# protected
 		self._window = window
-		self._dataset = self.__construct_windows(data)  
+		self._dataset = self.construct_windows(data, window)  
 		
 		self._detector = None  # implemented on svm/gmm/etc classes
 		self._trained = 0
-		print self._dataset
 	
-	def __construct_windows(self, data):
+	def load_dataset(self, data, windows):
+		self._window = window
+		self._dataset = self.construct_windows(data, window)
+		self._trained = 0  # it only for safety in case you load new dataset and ask for classify without train it first
+		
+	def construct_windows(self, data, window):
 		"""This function convert the dataset into windows
 		"""
-		if self._window != 1 :
+		if window != 1 :
 			samples, features = numpy.shape(data)
-			dataset = numpy.empty((0,self._window*features))
-			for i in range(0, samples-self._window+1):
-				d =  data[i:i+self._window]
+			dataset = numpy.empty((0,window*features))
+			for i in range(0, samples-window+1):
+				d =  data[i:i+window]
 				row = d[::-1].T.reshape(-1)				
 				dataset = numpy.vstack((dataset, row))
 			return dataset
@@ -43,8 +44,7 @@ class FaultDetector:
 		else:
 			print "MODEL HAS NOT BEEN TRAINED YET!"
 			
-	def load_model(self, name):           # Δεν μαρέσει γιατί αν φορτωθεί και άσχετο με τις παραμέτρους του
-										# οι παράμετροι δεν θα ισχύουν.
+	def load_model(self, name):           # DEN MARESEI. NA RWTISW TON MILTO AN UPARXEI LOGOS GIA KATI TETOIO
 		"""This function loads model file
 		"""
 		if (os.path.exists(name) == True):
@@ -58,14 +58,18 @@ class FaultDetector:
 			return None
 	
 	
-	def trainClassifier(self):
+	def train_classifier(self):
 		raise NotImplementedError	
 		
-	def classifySample(self,testSet2):
+	def classify_sample(self, samples):
+		raise NotImplementedError
+		
+		
+	def load_classifier_params(self,params):
 		raise NotImplementedError
 		
 
-
+	
 	
 	
 	
