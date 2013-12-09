@@ -32,6 +32,12 @@ class GMMFaultDetector(FaultDetector):
 		
 	def _predict_sample(self, sample):    
 		"""Make the decision for the faultyness of sample.
+		
+		Args:
+			sample: the sample to classify
+		
+		Return:
+			1 for non faulty -2 for faulty.
 		"""
 		score = self._detector.score(sample)
 		
