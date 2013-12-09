@@ -2,12 +2,24 @@ import numpy as np
 
 class Evaluator:
 	
+	
 	def __init__(self, behaviours, predictions):
 		
 		self.__behaviours = behaviours  # 1 for faulty, 0 for non faulty
 		self.__predictions = predictions # -1 for faulty, 1 for non faulty
 		self.__window = behaviours.size - predictions.size + 1
 		self.__reconfigure()
+		
+		
+		a = self.__behaviours
+		b = self.__predictions
+		
+		k = b[a==1]
+		self.detection_rate = k[k==1].size/a[a==1].size
+		
+		k = b[a==0]
+		self.fpr = k[k==1]/b[b==1].size
+		
 		
 	def __reconfigure(self):
 		
@@ -21,9 +33,3 @@ class Evaluator:
 						self.__behaviours[i] = 1
 						break
 			self.__behaviours = self.__behaviours[0:self.__predictions.size]
-					 
-		
-b = np.array([1,0,0,0,1,0,1,1,0])
-p = np.array([1,-1,-1,-1,1,-1,1])
-print b
-e = Evaluator(b,p)

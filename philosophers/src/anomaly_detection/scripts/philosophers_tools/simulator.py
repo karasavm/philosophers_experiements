@@ -2,11 +2,12 @@ import sys
 import subprocess
 import os
 import time
-import thread
+import threading
 import shutil
 import datetime
 import file_creator
 import random
+
 def load_params(file):
 	subprocess.Popen('rosparam load '+file,shell=True)
 
@@ -14,17 +15,22 @@ def run_experiment(): # block function
 	subprocess.call("rosrun anomaly_detection experiment_manip_main.py",shell=True) # blocks until experiment completes
 
 
-def faulty_simulator(args):
+def faulty_simulator(normal, faulty, mode):
 	"""THis function simulates a random faulty behaviours.
 	"""
-	normal = args[0]
-	faulty = args[1]
-	mode = args[2]
-	while END != 1:
-		time.sleep(random.randint(1,10))
-		subprocess.call("rosparam load "+faulty,shell=True)
-		time.sleep(random.randint(1,20))
-		subprocess.call("rosparam load "+normal,shell=True)
+	time.sleep(15*60)
+	subprocess.call("rosparam load "+faulty,shell=True)
+	#time.sleep(30*60)
+	#s = 5*60
+	#while s <= 60*28:
+		#i = random.randint(1,30)
+		#s=s+i
+		#time.sleep(i)
+		#subprocess.call("rosparam load "+faulty,shell=True)
+		#i = random.randint(1,10)
+		#s=s+i
+		#time.sleep(i)
+		#subprocess.call("rosparam load "+normal,shell=True)
 	
 def get_train_set():
 	
@@ -74,17 +80,20 @@ def get_test_sets(scenario):
 	
 	
 	shutil.copy(SCENARIOS_PATH+scenario,exp_path+scenario)
-	thread.start_new_thread(faulty_simulator,(args,))
-	
+	thr = threading.Thread(name="fault_simulator", target=faulty_simulator, args=args)
+	thr.start()
 	subprocess.call("rosrun anomaly_detection experiment_manip_main.py",shell=True) # blocks until experiment completes
+	
+	thr.join()
+	
 	load_params(SCENARIOS_PATH+"normal.yaml")
 	
-	time.sleep(10)
+	time.sleep(30) # wati for normal behaviour to get load
 
 if __name__ == "__main__":
 	
 	
-	END = 0
+	
 	#####################################################################################
 	DURATION = 15*60
 	NORMAL = 50
@@ -114,23 +123,21 @@ if __name__ == "__main__":
 	#file_creator.create_params_launch( PARAMS, LAUNCH_PATH, name='params.launch', namespace='/philosophers/')
 	#file_creator.file_creator.create_yaml_file(PARAMS, SCENARIOS_PATH, "normal.yaml", "/faulty_philosophers/")
 	
-	DURATION = 60*60*4
-	NORMAL = 50
-	FAULTY = 0
+	#DURATION = 60*60*4
+	#NORMAL = 50
+	#FAULTY = 0
 	
-	get_train_set()
+	#get_train_set()
 	
 	
-	#DURATION = 60*60
-	#NORMAL = 49
-	#FAULTY = 1
-	
+	DURATION = 30*60
+	NORMAL = 49
+	FAULTY = 1
+	get_test_sets('deny_forks')
 	#for scenario in SCENARIOS:
 		#print 'SCENARIO: "%s"' % scenario
-		#END = 0
 		#get_test_sets(scenario)
-		#END = 1
-		#time.sleep(25)
+		#time.sleep(10*60)
 	
 	
 	

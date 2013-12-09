@@ -1,9 +1,11 @@
 import random
-
+import threading
+import time
 import numpy as np
 
+a = np.array([ 1,0,0,1,0,0])
+b = np.array([ 1,1,1,0,0,1])
 
-a = np.array([1,2,3,3,4,5,3,1])
-b = np.array([2,3,5,3,4,5,2,1])
+k = b[a==1]
 
-print b[a==3][b[a==3] == 5].size 
+print k[k==1].size
