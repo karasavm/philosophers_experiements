@@ -68,8 +68,7 @@ class FaultDetector:
 						self.__test_window_size += 1
 						return None
 		else:
-			print "MODEL HAS NOT BEEN TRAINED YET!"
-			return None
+			raise ValueError("MODEL HAS NOT BEEN TRAINED YET!")
 		
 	def classify_samples(self, samples):
 		"""Classify a set of samples.
@@ -103,7 +102,7 @@ class FaultDetector:
 			pickle.dump(self, f, -1)
 			f.close()
 		else:  
-			print "MODEL HAS NOT BEEN TRAINED YET!"
+			raise ValueError("MODEL HAS NOT BEEN TRAINED YET!")
 			
 	@staticmethod	
 	def load_model(name):           
@@ -122,8 +121,7 @@ class FaultDetector:
 			f.close()
 			return obj
 		else:
-			print 'Model file "%s" does not exist.' % name
-			return None
+			raise ValueError("MODEL HAS NOT BEEN TRAINED YET!")
 	
 		
 	def _construct_windows(self, data):

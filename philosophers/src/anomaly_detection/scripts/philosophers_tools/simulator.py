@@ -18,19 +18,18 @@ def run_experiment(): # block function
 def faulty_simulator(normal, faulty, mode):
 	"""THis function simulates a random faulty behaviours.
 	"""
-	time.sleep(15*60)
-	subprocess.call("rosparam load "+faulty,shell=True)
-	#time.sleep(30*60)
-	#s = 5*60
-	#while s <= 60*28:
-		#i = random.randint(1,30)
-		#s=s+i
-		#time.sleep(i)
-		#subprocess.call("rosparam load "+faulty,shell=True)
-		#i = random.randint(1,10)
-		#s=s+i
-		#time.sleep(i)
-		#subprocess.call("rosparam load "+normal,shell=True)
+	time.sleep(10*60)
+	
+	s = 10*60
+	while s <= 60*28:
+		i = random.randint(1,30)
+		s=s+i
+		time.sleep(i)
+		subprocess.call("rosparam load "+faulty,shell=True)
+		i = random.randint(1,10)
+		s=s+i
+		time.sleep(i)
+		subprocess.call("rosparam load "+normal,shell=True)
 	
 def get_train_set():
 	
