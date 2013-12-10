@@ -22,7 +22,7 @@ class SVMFaultDetector(FaultDetector):
 		"""
 		self._detector.fit(dataset)
 	
-	def _predict_sample(self, sample):         ################################
+	def _predict_sample(self, sample):         
 		"""Make the decision for the faultyness of sample.
 		
 		Args:

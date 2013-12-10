@@ -1,35 +1,51 @@
 import numpy as np
+import fault_detector
 
 class Evaluator:
+	"""It is a class that evaluates with fpr and detection rate metrics a test set.
+	The results from the testing are taken form a specific FaulDetector Object. 
+	"""
+	def __init__(self, detector):
+		"""Initiallize the Evaluator instance. 
+		
+		Args:
+			detector: a FaultdDetector instance that will classify the samples from a given testset.
+		"""
+		self.__detector = detector
 	
-	
-	def __init__(self, behaviours, predictions):
+	def get_evaluations(self, testset, behaviours):
+		""" Calculate and returns the fpr and detection rate for the given testset.
+		It uses the detector(cosntructor's input) for getting the results.
 		
-		self.__behaviours = behaviours  # 1 for faulty, 0 for non faulty
-		self.__predictions = predictions # -1 for faulty, 1 for non faulty
-		self.__window = behaviours.size - predictions.size + 1
-		self.__reconfigure()
+		Args:
+			testset: a set of samples.
+		"""
+		predictions = self.__detector.classify_samples(testset)
+
+		predictions, behaviours = self.__reconfigure(predictions, behaviours)
 		
-		
-		a = self.__behaviours
-		b = self.__predictions
+		a = behaviours
+		b = predictions
 		
 		k = b[a==1]
-		self.detection_rate = k[k==1].size/a[a==1].size
+		detection_rate = k[k==1].size/a[a==1].size
 		
 		k = b[a==0]
-		self.fpr = k[k==1]/b[b==1].size
+		fpr = k[k==1]/a[a==0].size
+		
+		return detection_rate, fpr
 		
 		
-	def __reconfigure(self):
+	def __reconfigure(self, predictions, behaviours):
 		
-		self.__predictions = self.__predictions * (-0.5) + 0.5 # now 1 for faulty, 0 for non faulty
+		predictions = predictions * (-0.5) + 0.5 # now 1 for faulty, 0 for non faulty
 		
-		if self.__window != 1:
-			for i in range(self.__predictions.size):
+		if self.__detector.get_window() != 1:
+			for i in range(predictions.size):
 				
 				for j in range(self.__window):
-					if self.__behaviours[i+j] == 1:
-						self.__behaviours[i] = 1
+					if behaviours[i+j] == 1:
+						behaviours[i] = 1
 						break
-			self.__behaviours = self.__behaviours[0:self.__predictions.size]
+			behaviours = behaviours[0:predictions.size]
+		return predictions, behaviours

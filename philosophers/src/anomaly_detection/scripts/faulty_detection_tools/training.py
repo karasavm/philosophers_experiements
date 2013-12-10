@@ -46,7 +46,7 @@ if __name__ == "__main__":
 	
 	###################
 	trainset = dataset[:,48:50]
-	testset = faultset[:,49]
+	testset = faultset[:,48]
 	window = 1
 	svm_params = { "nu":0.1, "kernel":"rbf", "gamma":0.1}
 	gmm_params = { "n_components":2}
@@ -55,8 +55,8 @@ if __name__ == "__main__":
 	
 	
 	
-	
-	pl.plot(smooth(testset,150))
-	pl.plot(testset)
-	pl.plot(behset)
+	pl.plot(trainset)
+	#pl.plot(smooth(testset,150))
+	#pl.plot(testset)
+	#pl.plot(behset)
 	pl.show()

@@ -12,7 +12,7 @@ class FaultDetector:
 		
 		self.__window_size = window
 		self.__test_window_size = 0     
-		self._trained = 0
+		self.__trained = 0
 		
 		
 	def train_classifier(self, data):
@@ -22,7 +22,7 @@ class FaultDetector:
 		Args:
 			data: the initial dataset before the windows construction (type of array)
 		"""
-		self._trained = 1
+		self.___trained = 1
 		dataset = self._construct_windows(data)
 		self._fit_classifier(dataset) 
 		
@@ -45,7 +45,7 @@ class FaultDetector:
 			None: Untill it receives all the (window_size -1) samples.
 		"""
 		
-		if self._trained == 1:
+		if self.__trained == 1:
 			if self.__window_size == 1:
 				return self._predict_sample(sample)
 			else:
@@ -79,7 +79,6 @@ class FaultDetector:
 		Returns:
 			A vector with the decision for each sample(1/-1).
 		"""
-		
 		predictions = np.empty((0,0))
 		for sample in samples:
 			
@@ -89,15 +88,24 @@ class FaultDetector:
 				predictions = np.append(predictions,pred,)
 		return predictions
 		
+	def get_window(self):
+		"""Returns the window's width
+		"""
+		return window
+	
+	def isTrained(self):
+		"""Returns True if classifier is trained, False otherwise.
+		"""
+		return bool(self.__trained)
+
 	def export_model(self, name):
 		"""This function exports to a pickle file the implemented FaultDetector object.
 		It exports the self "variable".
 		
 		Args:
-		
 			name: The name/path of exporting file. (type of string)
 		"""
-		if self._trained == 1:  
+		if self.__trained == 1:  
 			f = open(name, 'w')
 			pickle.dump(self, f, -1)
 			f.close()
@@ -131,7 +139,6 @@ class FaultDetector:
 		Arg:
 			data: The initial dataset that will train the classifier. (type of np.array())
 		"""
-		
 		if self.__window_size != 1 :
 			samples, features = np.shape(data)
 			dataset = np.empty((0,self.__window_size*features))
