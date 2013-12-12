@@ -1,17 +1,31 @@
 #!/usr/bin/env python
 import numpy as np
-from svm_fault_detector import SVMFaultDetector
-from gmm_fault_detector import GMMFaultDetector
+
 import numpy
-import csv
-import pickle
 import numpy as np
 import pylab as pl
-import matplotlib.font_manager
-import matplotlib.pyplot as plt
+
 from sklearn import svm
+from sklearn import mixture
+
+from svm_fault_detector import SVMFaultDetector
+from gmm_fault_detector import GMMFaultDetector
+
+from fault_detector import FaultDetector
+
+import evaluator
 
 def smooth(a, window):
+	"""Calculate the moving average of a vector with a prefered window.
+		
+	
+		Args:
+			a: the vector we want to calculate the moving average.
+			window: moving average windo size.
+		
+		Returns:
+			A smoothed version of a!!!
+	"""
 	
 	if a.size < window:
 		return
@@ -24,39 +38,57 @@ def smooth(a, window):
 			s = s + a[i+j]
 		r[i] = s/window
 	return r
+	
+	
 if __name__ == "__main__":
 	
-	#test_path =  "/home/mike/experiments/eating_thinking_rates_07:43:16.959136/"
-	#test_path =  "/home/mike/experiments/const_05:22:39.803446/"
-	#test_path =  "/home/mike/experiments/deny_forks_06:33:02.379401/"
-	#test_path =  "/home/mike/experiments/hunger_rates_08:53:31.502341/"
-	
-	
-	#test_path =  "/home/mike/experiments/eating_thinking_rates_15:52:15.966309/"
-	test_path =  "/home/mike/experiments/eating_thinking_rates_16:59:00.760174/"
+	#test_path = '/home/mike/Dropbox/simeiwseis/Diploma/Outlier_Detection_Karasavvas_Mixalis/EXPERIMENTS/EXPERIMENT_A/hunger_rates_b_02:25:06.705302/'
+	#test_path = '/home/mike/Dropbox/simeiwseis/Diploma/Outlier_Detection_Karasavvas_Mixalis/EXPERIMENTS/EXPERIMENT_A/hunger_rates_a_00:30:36.997247/'
+	#test_path = '/home/mike/Dropbox/simeiwseis/Diploma/Outlier_Detection_Karasavvas_Mixalis/EXPERIMENTS/EXPERIMENT_A/eating_thinking_rates_23:20:10.465724/'
+	test_path = '/home/mike/Dropbox/simeiwseis/Diploma/Outlier_Detection_Karasavvas_Mixalis/EXPERIMENTS/EXPERIMENT_A/const_21:26:38.100732/'
+	#test_path = '/home/mike/Dropbox/simeiwseis/Diploma/Outlier_Detection_Karasavvas_Mixalis/EXPERIMENTS/EXPERIMENT_A/deny_forks_03:28:26.395999/'
 
-	train_path = "/home/mike/experiments/exp_train_14:32:09.050414/"
+	train_path = '/home/mike/Dropbox/simeiwseis/Diploma/Outlier_Detection_Karasavvas_Mixalis/EXPERIMENTS/TRAINSET_A/'
 
-	path = '/home/mike/experiments/'
-	
-	
 	dataset = np.loadtxt(open(train_path+'results_set.csv'))
 	faultset = np.loadtxt(open(test_path+'results_set.csv'))
 	behset  = np.loadtxt(open(test_path+'behaviours_set.csv'))
 	
 	###################
-	trainset = dataset[:,48:50]
-	testset = faultset[:,48]
-	window = 1
-	svm_params = { "nu":0.1, "kernel":"rbf", "gamma":0.1}
-	gmm_params = { "n_components":2}
+	trainset = dataset[:,49:50]	
+	testset = faultset[:,49:50]
+	window = 10
+	svm_params = { "nu":0.01, "kernel":"rbf", "gamma":0.1}
+	gmm_params = { "n_components":10}
 	###################
 	
 	
+	cutoff_per = 0.3
+	dr = np.empty((1,))
+	fpr = np.empty((1,))
 	
+	for i in range(14):
+		print i
+		detector = GMMFaultDetector(gmm_params, window, cutoff_per)
+		
+		detector.train_classifier(trainset)
+		
+		e = evaluator.Evaluator(detector)
+		d, f = e.get_metrics(testset, behset)
+		dr = np.append(dr,d)
+		fpr = np.append(fpr,f)
+		cutoff_per += 0.05
+	print fpr,dr
+	pl.subplot(211)
+	pl.plot(fpr,dr)
+	pl.xlabel('fpr')
+	pl.ylabel('detection rate')
+	pl.title('GMM(10components) one philosopher 30%-95%')
 	
-	pl.plot(trainset)
-	#pl.plot(smooth(testset,150))
-	#pl.plot(testset)
-	#pl.plot(behset)
+	pl.subplot(212)
+	pl.plot(testset)
+	pl.xlabel('time')
+	pl.ylabel('hunger level')
+	pl.title('Philosophers Hunger')
+	
 	pl.show()

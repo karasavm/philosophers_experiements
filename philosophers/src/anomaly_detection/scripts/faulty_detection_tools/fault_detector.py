@@ -22,7 +22,7 @@ class FaultDetector:
 		Args:
 			data: the initial dataset before the windows construction (type of array)
 		"""
-		self.___trained = 1
+		self.__trained = 1
 		dataset = self._construct_windows(data)
 		self._fit_classifier(dataset) 
 		
@@ -69,7 +69,54 @@ class FaultDetector:
 						return None
 		else:
 			raise ValueError("MODEL HAS NOT BEEN TRAINED YET!")
+	def score_sample(self, sample):
 		
+		
+		
+		"""Is classify the sample using the implementation of abstract function
+		_predit_sample()
+		
+		Args:
+			sample: The sample we want to classify,a feature vector. (type of array)
+		
+		Returns:
+			1: For a non faulty value.
+			-1: For a faulty value
+			None: Untill it receives all the (window_size -1) samples.
+		"""
+		
+		row, features = sample.shape
+		if row != 1:
+			raise ValueError("Wrong number of samples!!")
+		
+		if self.__trained != 1:
+			raise ValueError("MODEL HAS NOT BEEN TRAINED YET!")
+		
+		
+		if self.__window_size == 1:
+			return self._predict_sample(sample)
+		else:
+			if self.__test_window_size == self.__window_size - 1:   # we have complete the window
+
+				self.__window_stack = np.vstack((self.__window_stack,sample))
+				
+				row = self._construct_windows(self.__window_stack)
+				prediction = self._predict_sample(row)
+				self.__window_stack = self.__window_stack[1:,:] # delete oldest sample
+				return prediction
+			else:
+				if self.__test_window_size == 0:
+					
+					self.__window_stack = sample
+					self.__test_window_size += 1
+					return None
+				else:
+					self.__window_stack = np.vstack((self.__window_stack,sample))
+					self.__test_window_size += 1
+					return None
+		
+			
+			
 	def classify_samples(self, samples):
 		"""Classify a set of samples.
 		
@@ -91,7 +138,7 @@ class FaultDetector:
 	def get_window(self):
 		"""Returns the window's width
 		"""
-		return window
+		return self.__window_size
 	
 	def isTrained(self):
 		"""Returns True if classifier is trained, False otherwise.

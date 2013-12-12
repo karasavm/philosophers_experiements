@@ -25,6 +25,7 @@ class GMMFaultDetector(FaultDetector):
 		from the FaulDetector class using the window width.
 		We score the train dataset in order to create a propability threshold to take decisions.
 		"""
+		
 		self._detector.fit(dataset)
 		scores = self._detector.score(dataset)
 		scores = np.sort(scores)[::-1] ## descent sorting

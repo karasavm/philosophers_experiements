@@ -13,7 +13,7 @@ class Evaluator:
 		"""
 		self.__detector = detector
 	
-	def get_evaluations(self, testset, behaviours):
+	def get_metrics(self, testset, behaviours):
 		""" Calculate and returns the fpr and detection rate for the given testset.
 		It uses the detector(cosntructor's input) for getting the results.
 		
@@ -25,13 +25,16 @@ class Evaluator:
 		predictions, behaviours = self.__reconfigure(predictions, behaviours)
 		
 		a = behaviours
-		b = predictions
+		b = predictions.reshape((predictions.size,1))
+		
+		
+		
 		
 		k = b[a==1]
-		detection_rate = k[k==1].size/a[a==1].size
+		detection_rate = round(k[k==1].size/float(a[a==1].size), 2)
 		
 		k = b[a==0]
-		fpr = k[k==1]/a[a==0].size
+		fpr = round(k[k==1].size/float(a[a==0].size), 2)
 		
 		return detection_rate, fpr
 		
@@ -39,11 +42,11 @@ class Evaluator:
 	def __reconfigure(self, predictions, behaviours):
 		
 		predictions = predictions * (-0.5) + 0.5 # now 1 for faulty, 0 for non faulty
-		
-		if self.__detector.get_window() != 1:
+		window = self.__detector.get_window()
+		if window != 1:
 			for i in range(predictions.size):
 				
-				for j in range(self.__window):
+				for j in range(window):
 					if behaviours[i+j] == 1:
 						behaviours[i] = 1
 						break

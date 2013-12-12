@@ -18,18 +18,18 @@ def run_experiment(): # block function
 def faulty_simulator(normal, faulty, mode):
 	"""THis function simulates a random faulty behaviours.
 	"""
-	time.sleep(10*60)
-	
-	s = 10*60
-	while s <= 60*28:
-		i = random.randint(1,30)
-		s=s+i
-		time.sleep(i)
-		subprocess.call("rosparam load "+faulty,shell=True)
-		i = random.randint(1,10)
-		s=s+i
-		time.sleep(i)
-		subprocess.call("rosparam load "+normal,shell=True)
+	time.sleep(20*60)
+	subprocess.call("rosparam load "+faulty,shell=True)
+	#s = 10*60
+	#while s <= 60*28:
+		#i = random.randint(1,30)
+		#s=s+i
+		#time.sleep(i)
+		#subprocess.call("rosparam load "+faulty,shell=True)
+		#i = random.randint(1,10)
+		#s=s+i
+		#time.sleep(i)
+		#subprocess.call("rosparam load "+normal,shell=True)
 	
 def get_train_set():
 	
@@ -54,7 +54,7 @@ def get_train_set():
 def get_test_sets(scenario):
 
 	load_params(SCENARIOS_PATH+"normal.yaml")
-	time.sleep(5)  # give time to return in normal mode
+	time.sleep(10)  # give time to return in normal mode
 	
 	exp_path = EXPERIMENTS_PATH + scenario + "_" + str(datetime.datetime.time(datetime.datetime.now()))+"/"	
 	os.mkdir(exp_path)
@@ -87,7 +87,7 @@ def get_test_sets(scenario):
 	
 	load_params(SCENARIOS_PATH+"normal.yaml")
 	
-	time.sleep(30) # wati for normal behaviour to get load
+	time.sleep(5) # wati for normal behaviour to get load
 
 if __name__ == "__main__":
 	
@@ -113,8 +113,8 @@ if __name__ == "__main__":
 	]
 	
 	LAUNCH_PATH = '/home/mike/svn/nasia/trunk/philosophers/src/dining_philosopher/launch/'
-	EXPERIMENTS_PATH = '/home/mike/experiments/'
-	SCENARIOS_PATH = '/home/mike/experiments/scenarios/'
+	EXPERIMENTS_PATH = '/home/mike/Dropbox/simeiwseis/Diploma/Outlier_Detection_Karasavvas_Mixalis/EXPERIMENTS/EXPERIMENT_A/'
+	SCENARIOS_PATH = '/home/mike/Dropbox/simeiwseis/Diploma/Outlier_Detection_Karasavvas_Mixalis/EXPERIMENTS/scenarios/'
 	#####################################################################################
 	
 	
@@ -133,6 +133,7 @@ if __name__ == "__main__":
 	NORMAL = 49
 	FAULTY = 1
 	get_test_sets('deny_forks')
+	
 	#for scenario in SCENARIOS:
 		#print 'SCENARIO: "%s"' % scenario
 		#get_test_sets(scenario)
