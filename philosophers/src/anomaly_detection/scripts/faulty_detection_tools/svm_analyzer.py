@@ -6,26 +6,19 @@ from analyzer import Analyzer
 import datetime
 
 MODELS_DIR = 'TRAINED_MODELS/'
-NAME = 'SVM'
-class GMMAnalyzer(Analyzer):
+NAME = 'svm'
+class SVMAnalyzer(Analyzer):
 	
 	def __init__(self, ws_path):
 		
 		self.__ws_path = ws_path
 		
-	def create_models(self, trainset, parameters):
+	def create_models(self, trainset, svm_params, windows):
 		
 		# set default windows in case not defined
-		if 'windows' not in parameters.keys():  
+		if windows == None:  
 			windows = [1, 5, 10, 20]
-		else:
-			windows = parameters['windows']
 		
-		# create the dict with the parameters that are correlated with the estimator's algorithm
-		svm_params = {}  
-		for key in parameters.keys():
-			if key not in ('windows'):
-				svm_params[key] = parameters[key]
 				
 		# set default nu in case not defined
 		if 'nu' not in svm_params.keys():  
@@ -49,61 +42,43 @@ class GMMAnalyzer(Analyzer):
 		description['WINDOWS'] = windows
 		description['TRAINSET'] = str(trainset.shape)
 
+	
 		# create the directory to put the trained models
 		models_path = self.__ws_path + MODELS_DIR   
+		for i in range(1000):
+			gname = NAME + str(i)  # group name for instance "svm1"
+			if self._create_dir(models_path+gname):   # svmi doesnt exist so we create it
+				self._create_desc(models_path+gname+".txt",description)
+				break
 		
-		name = NAME + "_" + str(datetime.datetime.time(datetime.datetime.now()))   # dir name "SVM_i"
-		self._create_dir(models_path+name)
-		self._create_desc(models_path+name+".txt",description)
-				
+		gpath = models_path+gname+"/" # group path   eg svm3
 		
-		c_path = models_path+name+"/" # current path
+		# export parameter combination file
+		f = open(gpath+gname+'_params_comb.txt','w')
+		for i,params in enumerate(grid_params):
+			f.write(str(i)+"#"+str(params)+"\n")
+		f.close()
+		
+		# for each window
 		for window in windows:
-			
-			t_path = c_path+"window="+str(window)+"/"
-			self._create_dir(t_path)
-			
-			f = open(t_path+'params_combinations.txt','w')
-			
+			wname = "w"+str(window)
+			wpath = gpath+wname+"/"
+			self._create_dir(wpath)
+
 			# for its param combination on grid
-			for i,params in enumerate(grid_params):
+			for i,params in enumerate(grid_params):  # i is the combination id
 				
+				cname = "c"+str(i)
 				print "WINDOW:%d param:%d"%(window,i)
 				print str(params)
-				
-				
-				f_path = t_path + "comb="+str(i)+"/"
-				self._create_dir(f_path)
-				
-					
+
 				detector = SVMFaultDetector(params, window)
 				detector.train_classifier(trainset)
 				
-				detector.export_model(f_path+"svm.pkl")
-				
-				f.write(str(i)+"#"+str(params)+"\n")
+				name =gname+wname+cname
+				detector.export_model(wpath+name+".pkl")
 				
 			f.close()	
-
-
-
-train_path = '/home/mike/Dropbox/simeiwseis/Diploma/Outlier_Detection_Karasavvas_Mixalis/EXPERIMENTS/TRAINSET_A/results_set.csv'
-ws_path = '/home/mike/Dropbox/simeiwseis/Diploma/Outlier_Detection_Karasavvas_Mixalis/EXPERIMENTS/Workspace/'
-
-
-
-params = {
-	'windows':[1,5,10],
-	"nu":[1,0.1],
-	"kernel":['rbf'],
-	"gamma": [0, 0.1]
-}
-
-
-trainset = np.loadtxt(open(train_path))
-
-a = GMMAnalyzer(ws_path)
-a.create_models(trainset[:,49:50], params)
 
 
 

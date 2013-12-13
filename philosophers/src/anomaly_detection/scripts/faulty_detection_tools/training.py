@@ -13,6 +13,9 @@ from gmm_fault_detector import GMMFaultDetector
 
 from fault_detector import FaultDetector
 
+from svm_analyzer import SVMAnalyzer
+from gmm_analyzer import GMMAnalyzer
+
 import evaluator
 
 def smooth(a, window):
@@ -63,32 +66,85 @@ if __name__ == "__main__":
 	###################
 	
 	
-	cutoff_per = 0.3
-	dr = np.empty((1,))
-	fpr = np.empty((1,))
+	ws_path = '/home/mike/Dropbox/simeiwseis/Diploma/Outlier_Detection_Karasavvas_Mixalis/EXPERIMENTS/Workspace/'
 	
-	for i in range(14):
-		print i
-		detector = GMMFaultDetector(gmm_params, window, cutoff_per)
-		
-		detector.train_classifier(trainset)
-		
-		e = evaluator.Evaluator(detector)
-		d, f = e.get_metrics(testset, behset)
-		dr = np.append(dr,d)
-		fpr = np.append(fpr,f)
-		cutoff_per += 0.05
-	print fpr,dr
-	pl.subplot(211)
-	pl.plot(fpr,dr)
-	pl.xlabel('fpr')
-	pl.ylabel('detection rate')
-	pl.title('GMM(10components) one philosopher 30%-95%')
 	
-	pl.subplot(212)
-	pl.plot(testset)
-	pl.xlabel('time')
-	pl.ylabel('hunger level')
-	pl.title('Philosophers Hunger')
 	
-	pl.show()
+	#params = {
+		#'windows':[1,5,10,15,20],
+		#"nu":[0.01,0.1,0.4,0.5,0.6,0.8,0.9,1],
+		#"kernel":['rbf'],
+		#"gamma": [0, 0.1, 0.5, 1, 1.5, 5, 10, 20]
+	#}
+	
+	
+	#trainset = dataset[:,49:50]
+	#a = SVMAnalyzer(ws_path)
+	
+	#a.create_models(trainset, params)
+	
+	
+	#params = {
+		#'windows':[1,5,10,15,20],
+		#"n_components":[1,5,10,15,20],
+		#"covariance_type": ["full", "diag"]
+	#}
+	
+	#trainset = dataset[:,49:50]
+	
+	#a = GMMAnalyzer(ws_path)
+	#print dataset.shape
+	#a.create_models(trainset, params)
+	
+	
+	
+	#params = {
+		#'windows':[1,5,10,15,20],
+		#"nu":[0.01,0.1,0.4,0.5,0.6,0.8,0.9,1],
+		#"kernel":['rbf'],
+		#"gamma": [0,0.1, 0.5, 1, 1.5, 5, 10, 20]
+	#}
+	
+	
+	#trainset = dataset[:,48:50]
+	#a = SVMAnalyzer(ws_path)
+	
+	#a.create_models(trainset, params)
+	
+	
+	
+	
+	#params = {
+		#"n_components":[1,5,10,15,20],
+		#"covariance_type": ["full", "diag"]
+	#}
+	
+	#trainset = dataset[:,48:50]
+	
+	#a = GMMAnalyzer(ws_path)
+	#a.create_models(trainset, params,windows=[1,5,10,15,20])
+	
+	###################################################################
+	
+	
+	params = {
+		"n_components":[1,5],
+		"covariance_type": ["diag"]
+	}
+	
+	trainset = dataset[:,49:50]
+	
+	a = GMMAnalyzer(ws_path)
+	a.create_models(trainset, params,windows=[1,5])
+	
+	#params = {
+		#"nu":[0.01,0.1,0.4],
+		#"kernel":['rbf'],
+		#"gamma": [0,0.1, 0.5, 1]
+	#}
+	
+	
+	#trainset = dataset[:,49:50]
+	#a = SVMAnalyzer(ws_path)
+	
+	#a.create_models(trainset, params, windows = [1,2,3])

@@ -5,15 +5,9 @@ import numpy as np
 import pylab as pl
 import ast
 import itertools
-x = {"a":[1,2,3], "b":["cool","gg"]}
+import os
 
+top = '/home/mike/Dropbox/simeiwseis/Diploma/Outlier_Detection_Karasavvas_Mixalis/EXPERIMENTS/Workspace/test'
 
-def frange(x, y, jump):
-  while x < y:
-    yield x
-    x += jump
-    
-    
-    
-for i in frange(0.5,1,0.05):
-	print i
+for f in os.walk(top, topdown=True):
+	print f
