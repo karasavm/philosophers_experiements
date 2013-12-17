@@ -20,6 +20,7 @@ class Evaluator:
 		Args:
 			testset: a set of samples.
 		"""
+		
 		predictions = self.__detector.classify_samples(testset)
 
 		predictions, behaviours = self.__reconfigure(predictions, behaviours)
@@ -29,26 +30,40 @@ class Evaluator:
 		
 		
 		
-		
 		k = b[a==1]
-		detection_rate = round(k[k==1].size/float(a[a==1].size), 2)
+		detection_rate = round(k[k==1].size/float(a[a==1].size), 3)
 		
 		k = b[a==0]
-		fpr = round(k[k==1].size/float(a[a==0].size), 2)
 		
-		return detection_rate, fpr
+		fpr = round(k[k==1].size/float(a[a==0].size), 3)
+		
+		return {'detection_rate':detection_rate, 'fpr':fpr}
 		
 		
 	def __reconfigure(self, predictions, behaviours):
 		
 		predictions = predictions * (-0.5) + 0.5 # now 1 for faulty, 0 for non faulty
 		window = self.__detector.get_window()
-		if window != 1:
-			for i in range(predictions.size):
-				
-				for j in range(window):
-					if behaviours[i+j] == 1:
-						behaviours[i] = 1
-						break
-			behaviours = behaviours[0:predictions.size]
-		return predictions, behaviours
+		
+		if window == 1:
+			return predictions, behaviours
+		
+		beh = []
+		for i in range(predictions.size):
+			
+			for j in range(window):
+				if behaviours[i+j] == 1:
+					beh.append(1)
+					break
+			else:
+				beh.append(0)
+					
+		return predictions, np.array(beh)
+
+
+	def get_detector(self):
+		return self.__detector
+
+
+
+

@@ -13,8 +13,33 @@ class SVMFaultDetector(FaultDetector):
 			params: A dictionary with the appropriate params for an OneClassSVM estimator.
 			window: the width of window.
 		"""
-		FaultDetector.__init__(self, window)
-		self._detector = svm.OneClassSVM(**params)
+		
+		# Check for valid parameters
+		for key in params.keys():
+			if key not in ('window', 'gamma', 'nu', 'kernel'):
+				raise ValueError('Wrong key value: %s'%key)
+		
+		# Initiallize default values
+		if 'window' not in params.keys():
+			params['window'] = 1
+		
+		if 'gamma' not in params.keys():
+			params['gamma'] = 0.1
+		
+		if 'nu' not in params.keys():
+			params['nu'] = 0.1
+			
+		if 'kernel' not in params.keys():
+			params['kernel'] = 'rbf'
+		
+		# create svm parameters dictionary
+		svm_params = {}
+		for key in params.keys():
+			if key not in ('window'):
+				svm_params[key] = params[key]		
+		
+		FaultDetector.__init__(self, params)
+		self._detector = svm.OneClassSVM(**svm_params)
 		
 	def _fit_classifier(self, dataset):
 		""" This function train our estimator. The dataset has been created

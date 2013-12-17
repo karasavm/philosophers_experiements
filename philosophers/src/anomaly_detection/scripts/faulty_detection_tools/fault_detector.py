@@ -4,13 +4,15 @@ import os.path
 
 class FaultDetector:
 	
-	def __init__(self, window):
+	def __init__(self, params):
 		"""Initializes the abstract FaultDetector. 
 		Args:
-			window: The size(positive) of desired window. (type of integer)
+			params: contains all the params for the detector (algorithm params(n_components)+window size+everything else e.g.(cutoff_per)
 		"""
+		self.__params = params   
 		
-		self.__window_size = window
+		self.__window_size = params['window']
+		
 		self.__test_window_size = 0     
 		self.__trained = 0
 		
@@ -28,11 +30,6 @@ class FaultDetector:
 		
 	def classify_sample(self, sample):
 		
-		
-		row, features = sample.shape
-		if row != 1:
-			print "Wrong number of samples!!"
-			return None
 		"""Is classify the sample using the implementation of abstract function
 		_predit_sample()
 		
@@ -44,6 +41,11 @@ class FaultDetector:
 			-1: For a faulty value
 			None: Untill it receives all the (window_size -1) samples.
 		"""
+		
+		row, features = sample.shape
+		if row != 1:
+			print "Wrong number of samples!!"
+			return None
 		
 		if self.__trained == 1:
 			if self.__window_size == 1:
@@ -70,9 +72,7 @@ class FaultDetector:
 		else:
 			raise ValueError("MODEL HAS NOT BEEN TRAINED YET!")
 	def score_sample(self, sample):
-		
-		
-		
+
 		"""Is classify the sample using the implementation of abstract function
 		_predit_sample()
 		
@@ -178,24 +178,28 @@ class FaultDetector:
 		else:
 			raise ValueError("MODEL HAS NOT BEEN TRAINED YET!")
 	
-		
+	
+	def get_params(self):
+		return self.__params
+	
 	def _construct_windows(self, data):
 		"""This function convert the dataset into windows.
 		It has to be called at train_classifier() function in order to convert the dataset.
 		
 		Arg:
-			data: The initial dataset that will train the classifier. (type of np.array())
+			data: The initial dataset that will train the classifier. (type of np.array(), shape=(n,1))
 		"""
-		if self.__window_size != 1 :
-			samples, features = np.shape(data)
-			dataset = np.empty((0,self.__window_size*features))
-			for i in range(0, samples-self.__window_size+1):
-				d =  data[i:i+self.__window_size]
-				row = d[::-1].T.reshape(-1)				
-				dataset = np.vstack((dataset, row))
-			return dataset
-		else:
+		
+		if self.__window_size == 1:
 			return data
+		samples, features = np.shape(data)
+		dataset = np.empty((0,self.__window_size*features))
+		for i in range(0, samples-self.__window_size+1):
+			d =  data[i:i+self.__window_size]
+			row = d[::-1].T.reshape(-1)				
+			dataset = np.vstack((dataset, row))
+		return dataset
+		
 	
 
 	def _fit_classifier(self):
@@ -216,7 +220,8 @@ class FaultDetector:
 		raise NotImplementedError
 		
 	
-		
+	def get_detector(self):
+		raise NotImplementedError
 
 	
 	
