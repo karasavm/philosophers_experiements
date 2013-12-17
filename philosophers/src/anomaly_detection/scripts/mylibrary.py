@@ -39,23 +39,6 @@ def get_filepaths(directory):
 	return file_paths  # Self-explanatory.
 
 
-def construct_windows( data, window):
-		"""This function convert the dataset into windows.
-		It has to be called at train_classifier() function in order to convert the dataset.
-		
-		Arg:
-			data: The initial dataset that will train the classifier. (type of np.array(), shape=(n,1) ))
-		"""
-		if window != 1 :
-			samples, features = np.shape(data)
-			dataset = np.empty((0,window*features))
-			for i in range(0, samples-window+1):
-				d =  data[i:i+window]
-				row = d[::-1].T.reshape(-1)				
-				dataset = np.vstack((dataset, row))
-			return dataset
-		else:
-			return data
 			
 def smooth(a, window):
 	"""
@@ -81,3 +64,29 @@ def smooth(a, window):
 			s = s + a[i+j]
 		r[i] = s/window
 	return r
+
+def devectorize(vector):
+	
+	if len(vector.shape) == 1:
+		vector = vector.reshape((-1,1))
+	
+	return vector
+
+
+def construct_windows(data, window):
+	"""This function convert the dataset into windows.
+	It has to be called at train_classifier() function in order to convert the dataset.
+	
+	Arg:
+		data: The initial dataset that will train the classifier. (type of np.array(), shape=(n,1))
+	"""
+	
+	if window == 1:
+		return data
+	samples, features = np.shape(data)
+	dataset = np.empty((0, window*features))
+	for i in range(0, samples-window+1):
+		d =  data[i:i+window]
+		row = d[::-1].T.reshape(-1)				
+		dataset = np.vstack((dataset, row))
+	return dataset

@@ -63,6 +63,7 @@ class GMMFaultDetector(FaultDetector):
 		Return:
 			1 for non faulty -2 for faulty.
 		"""
+		print sample.shape
 		score = self._detector.score(sample)
 		
 		if score >= self.__threshold:

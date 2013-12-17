@@ -16,7 +16,6 @@ class FaultDetector:
 		self.__test_window_size = 0     
 		self.__trained = 0
 		
-		
 	def train_classifier(self, data):
 		"""This function train our model. It uses the implementation of abstract function
 		_fit_classifier()
