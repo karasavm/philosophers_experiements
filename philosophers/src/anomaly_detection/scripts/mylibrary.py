@@ -90,3 +90,26 @@ def construct_windows(data, window):
 		row = d[::-1].T.reshape(-1)				
 		dataset = np.vstack((dataset, row))
 	return dataset
+
+
+def statistics(dataset):
+    mx = np.max(dataset, axis=1)
+    mn = np.abs(np.min(dataset, axis=1))
+    std = np.std(dataset, axis=1)
+    mean = np.mean(dataset, axis=1)
+    
+    return np.vstack((mean, std, mx, mn)).T
+
+def recon_behset(behset, window):
+    
+    size = behset.size - window + 1
+    beh = []
+    for i in range(size):
+        for j in range(window):
+            if behset[i+j] == 1:
+                beh.append(1)
+                break
+        else:
+            beh.append(0)
+        
+    return devectorize(np.array(beh))

@@ -94,7 +94,7 @@ if __name__ == "__main__":
 	
 	
 	#####################################################################################
-	DURATION = 15*60
+	DURATION = 30*60
 	NORMAL = 50
 	FAULTY = 0
 	
@@ -113,8 +113,8 @@ if __name__ == "__main__":
 	]
 	
 	LAUNCH_PATH = '/home/mike/svn/nasia/trunk/philosophers/src/dining_philosopher/launch/'
-	EXPERIMENTS_PATH = '/home/mike/Dropbox/simeiwseis/Diploma/Outlier_Detection_Karasavvas_Mixalis/EXPERIMENTS/EXPERIMENT_A/'
-	SCENARIOS_PATH = '/home/mike/Dropbox/simeiwseis/Diploma/Outlier_Detection_Karasavvas_Mixalis/EXPERIMENTS/scenarios/'
+	EXPERIMENTS_PATH = '/home/mike/Workspace/TEST_SETS/testsets3/'
+	SCENARIOS_PATH = '/home/mike/Workspace/TEST_SETS/scenarios2/'
 	#####################################################################################
 	
 	
@@ -132,7 +132,7 @@ if __name__ == "__main__":
 	DURATION = 30*60
 	NORMAL = 49
 	FAULTY = 1
-	get_test_sets('deny_forks')
+	get_test_sets('eating_thinking_rates_b')
 	
 	#for scenario in SCENARIOS:
 		#print 'SCENARIO: "%s"' % scenario
